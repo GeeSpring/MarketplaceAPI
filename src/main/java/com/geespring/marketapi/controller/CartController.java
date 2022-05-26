@@ -48,7 +48,7 @@ public class CartController {
      * @param productId
      * @return {@link HttpStatus#OK}
      */
-    @GetMapping("/remove/{productId}")
+    @DeleteMapping("/remove/{productId}")
     public ResponseEntity<?> delete(@PathVariable("productId") final Long productId) {//TODO find the user by session token and append it to service
         service.delete(1L, productId);
         return new ResponseEntity<>(HttpStatus.OK);
