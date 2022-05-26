@@ -17,6 +17,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.3.4.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-security:2.3.4.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc:2.6.7'
     implementation 'org.flywaydb:flyway-core'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
