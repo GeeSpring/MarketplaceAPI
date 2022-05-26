@@ -1,16 +1,15 @@
-package com.geespring.marketapi.customer;
+package com.geespring.marketapi.controller;
 
+import com.geespring.marketapi.model.Account;
+import com.geespring.marketapi.service.AccountService;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
-@RequestMapping(path = "api/customer")
+@RequestMapping(path = "customer")
 @RequiredArgsConstructor
 public class AccountController {
 

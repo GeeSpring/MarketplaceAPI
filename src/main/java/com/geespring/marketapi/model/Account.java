@@ -1,4 +1,4 @@
-package com.geespring.marketapi.customer;
+package com.geespring.marketapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

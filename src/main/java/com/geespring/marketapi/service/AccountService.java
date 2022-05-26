@@ -1,5 +1,6 @@
-package com.geespring.marketapi.customer;
+package com.geespring.marketapi.service;
 
+import com.geespring.marketapi.model.Account;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
