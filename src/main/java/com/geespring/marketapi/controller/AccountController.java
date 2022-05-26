@@ -40,9 +40,9 @@ public class AccountController {
     }
 
     /**
-     * Handles the delete mapping to delete the account with the requested account id
+     * Handles the delete mapping to the account with the requested account id
      * @param id
-     * @return http status ok
+     * @return {@link HttpStatus#OK}
      */
     public ResponseEntity<?> delete(@PathVariable("id") Long id) {
         service.delete(id);

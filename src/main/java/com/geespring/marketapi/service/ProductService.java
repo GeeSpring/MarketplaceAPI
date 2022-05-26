@@ -14,8 +14,8 @@ public class ProductService {
      */
     public List<Product> getAllProducts() {
         return List.of(
-                new Product(1L, "Blake's Dildo", "Its big and black", 14.30f),
-                new Product(1L, "Blake's Viabrator", "Its big and pink", 12.14f)
+                new Product(1L, "Hellcat", "Should have kept it.", 14.30f),
+                new Product(2L, "Tesla", "Sounds like a pissed off electric toothbrush.", 12.14f)
         );
     }
 

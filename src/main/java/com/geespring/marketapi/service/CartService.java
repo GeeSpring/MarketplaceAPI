@@ -13,9 +13,9 @@ public class CartService {
      * Fetches all of the products from the database
      * @return the list of products
      */
-    public List<Product> getCartProducts() {
+    public List<Product> getCartProducts(final Long userId) {
         return List.of(
-                new Product(1L, "Blakes Dildo", "It's large and black", 14.0f)
+                new Product(1L, "Tesla", "Sounds like a pissed off electric toothbrush.", 14.0f)
         );
     }
 
@@ -23,7 +23,7 @@ public class CartService {
      * Adds the specified product id into the users cart
      * @param product
      */
-    public void add(final CartProductDTO product) {
+    public void add(final Long userId, final CartProductDTO product) {
 
     }
 
@@ -31,7 +31,7 @@ public class CartService {
      * Deletes the specified product id from the users cart
      * @param productId
      */
-    public void delete(final Long productId) {
+    public void delete(final Long userId, final Long productId) {
 
     }
 }
