@@ -22,6 +22,9 @@ public class UserService {
     @Autowired
     private final UserRepository repository;
 
+    /**
+     * Represents the TimeUtil Component Instance
+     */
     @Autowired
     private final TimeUtil timeUtil;
 
@@ -56,10 +59,10 @@ public class UserService {
     @Transactional
     public void update(final Long id, String name, String password) {
         User existing = find(id);
-        if (name != null && !name.equalsIgnoreCase(existing.getName())) {
+        if (name != null && name.length() > 0 && !name.equalsIgnoreCase(existing.getName())) {
             existing.setName(name);
         }
-        if (password != null && !password.equalsIgnoreCase(existing.getPassword())) {
+        if (password != null && password.length() > 7 && !password.equalsIgnoreCase(existing.getPassword())) {
             existing.setPassword(password);
         }
     }

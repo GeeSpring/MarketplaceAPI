@@ -1,31 +1,34 @@
 package com.geespring.marketapi.model;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-@RequiredArgsConstructor
+@Getter
+@Setter
+@Table(name = "users_cart")
 public class Cart {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     /**
      * Represents the user id this product belongs to
      */
-    @Id
-    @Getter
-    private final Long userId;
+    @Column(name = "user_id")
+    private Long userId;
 
     /**
      * Represents the product id
      */
-    @Getter
-    private final Long productId;
+    @Column(name = "product_id")
+    private Long productId;
 
     /**
      * Represents the quantity of the product
      */
-    @Getter
     private Integer quantity;
 }

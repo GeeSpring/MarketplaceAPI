@@ -37,6 +37,9 @@ public class User {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
+    /**
+     * Represents the exact timestamp the user account was created
+     */
     @Column(name = "created_at", nullable = false, updatable = false)
     private String createdAt;
 

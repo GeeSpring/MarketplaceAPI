@@ -10,7 +10,7 @@ public class CartProductDTO {
      * Represents the Cart Product ID
      */
     @Getter
-    private final Integer productId;
+    private final Long productId;
 
     /**
      * Represents the Cart Product Quantity

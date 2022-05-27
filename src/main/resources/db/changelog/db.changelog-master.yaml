@@ -69,3 +69,35 @@ databaseChangeLog:
                   type: float
                   constraints:
                     nullable: false
+
+  - changeSet:
+      id: 3
+      author: brandon
+      comment: Added shopping cart to the db
+      changes:
+
+        - createTable:
+            tableName: users_cart
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: product_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: quantity
+                  type: float
+                  constraints:
+                    nullable: false

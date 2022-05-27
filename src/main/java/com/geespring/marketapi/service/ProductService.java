@@ -1,7 +1,6 @@
 package com.geespring.marketapi.service;
 
 import com.geespring.marketapi.model.Product;
-import com.geespring.marketapi.model.User;
 import com.geespring.marketapi.repository.ProductRepository;
 import com.geespring.marketapi.util.exceptions.DataNotFoundException;
 import com.google.common.collect.ImmutableList;
