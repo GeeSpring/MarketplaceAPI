@@ -4,6 +4,7 @@ import com.geespring.marketapi.model.User;
 import com.geespring.marketapi.repository.UserRepository;
 import com.geespring.marketapi.util.TimeUtil;
 import com.geespring.marketapi.util.exceptions.DataNotFoundException;
+import com.geespring.marketapi.util.exceptions.DuplicateDataFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,10 +31,11 @@ public class UserService {
      * @return the requested account object
      */
     public User create(User user) {
+        if (repository.findByEmailAddress(user.getEmail()).isPresent()) {
+            throw new DuplicateDataFoundException();
+        }
         user.setCreatedAt(timeUtil.getLocalDateTime());
-        User use1 = repository.save(user);
-        System.out.println(use1.toString());
-        return use1;
+        return repository.save(user);
     }
 
     /**
@@ -46,11 +48,20 @@ public class UserService {
     }
 
     /**
-     * Saves the account object into the database
-     * @param user
+     * Updates the {@link User} basic essential information excluding email address
+     * @param id
+     * @param name
+     * @param password
      */
-    public void update(final User user) {
-        repository.save(user);
+    @Transactional
+    public void update(final Long id, String name, String password) {
+        User existing = find(id);
+        if (name != null && !name.equalsIgnoreCase(existing.getName())) {
+            existing.setName(name);
+        }
+        if (password != null && !password.equalsIgnoreCase(existing.getPassword())) {
+            existing.setPassword(password);
+        }
     }
 
     /**
@@ -58,7 +69,9 @@ public class UserService {
      * @param id
      */
     public void delete(final Long id) {
-        repository.deleteById(id);
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+        } else throw new IllegalStateException("User with id " + id + " does not exist.");
     }
 
 }

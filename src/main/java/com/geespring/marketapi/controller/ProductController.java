@@ -27,7 +27,7 @@ public class ProductController {
      */
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
-        return new ResponseEntity<>(service.getAllProducts(), HttpStatus.OK);
+        return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
     }
 
     /**
@@ -41,12 +41,33 @@ public class ProductController {
     }
 
     /**
-     * Adds a product to the database
+     * Adds a {@link Product} to the database
      * @param product
      * @return the product requested
      */
-    @GetMapping("/add")
+    @PostMapping("/")
     public ResponseEntity<Product> add(@RequestBody Product product) {
         return new ResponseEntity<>(service.save(product), HttpStatus.OK);
+    }
+
+    /**
+     * Updates the {@link Product} with the specified id details.
+     * @param id
+     * @param name
+     * @param description
+     * @param price
+     */
+    @PutMapping(path = "{id}")
+    public void update(@PathVariable("id") final Long id, @RequestParam(required = false) String name, @RequestParam(required = false) String description, @RequestParam(required = false) Float price) {
+        service.update(id, name, description, price);
+    }
+
+    /**
+     * Deletes a {@link Product} from the database
+     * @param id
+     */
+    @DeleteMapping(path = "{id}")
+    public void delete(@PathVariable("id") final Long id) {
+        service.delete(id);
     }
 }

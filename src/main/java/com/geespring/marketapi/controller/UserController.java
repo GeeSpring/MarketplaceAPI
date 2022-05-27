@@ -39,6 +39,11 @@ public class UserController {
         return new ResponseEntity<>(service.find(id), HttpStatus.OK);
     }
 
+    @PutMapping("{id}")
+    public void update(@PathVariable("id") final Long id, @RequestParam(required = false) String name, @RequestParam(required = false) String password) {
+        service.update(id, name, password);
+    }
+
     /**
      * Handles the delete mapping to the account with the requested account id
      * @param id

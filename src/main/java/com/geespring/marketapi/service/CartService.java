@@ -4,6 +4,7 @@ import com.geespring.marketapi.dto.cart.CartProductDTO;
 import com.geespring.marketapi.model.Product;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -14,9 +15,7 @@ public class CartService {
      * @return the list of products
      */
     public List<Product> getCartProducts(final Long userId) {
-        return List.of(
-                new Product(1L, "Tesla", "Sounds like a pissed off electric toothbrush.", 14.0f)
-        );
+        return new ArrayList<>();
     }
 
     /**

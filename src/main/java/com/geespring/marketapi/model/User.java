@@ -40,14 +40,4 @@ public class User {
     @Column(name = "created_at", nullable = false, updatable = false)
     private String createdAt;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", createdAt='" + createdAt + '\'' +
-                '}';
-    }
 }
