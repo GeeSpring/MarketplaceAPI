@@ -1,7 +1,6 @@
 package com.geespring.marketapi.controller;
 
 import com.geespring.marketapi.dto.cart.CartProductDTO;
-import com.geespring.marketapi.model.Cart;
 import com.geespring.marketapi.model.Product;
 import com.geespring.marketapi.service.CartService;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("cart")
+@RequestMapping(path = "cart")
 @RequiredArgsConstructor
 public class CartController {
 

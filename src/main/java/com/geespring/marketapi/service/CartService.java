@@ -10,7 +10,7 @@ import java.util.List;
 public class CartService {
 
     /**
-     * Fetches all of the products from the database
+     * Fetches a list of all products in the users cart
      * @return the list of products
      */
     public List<Product> getCartProducts(final Long userId) {

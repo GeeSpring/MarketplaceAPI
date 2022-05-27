@@ -6,10 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,8 +37,7 @@ public class ProductController {
      */
     @GetMapping("/{id}")
     public ResponseEntity<Product> findById(@PathVariable("id") final Long id) {
-        //TODO fetch product from db
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(service.findById(id), HttpStatus.OK);
     }
 
     /**
@@ -50,7 +46,7 @@ public class ProductController {
      * @return the product requested
      */
     @GetMapping("/add")
-    public ResponseEntity<Product> add(Product product) {
-        return new ResponseEntity<>(product, HttpStatus.OK);
+    public ResponseEntity<Product> add(@RequestBody Product product) {
+        return new ResponseEntity<>(service.save(product), HttpStatus.OK);
     }
 }
