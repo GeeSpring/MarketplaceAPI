@@ -46,7 +46,7 @@ public class ProductController {
      * @return the product requested
      */
     @PostMapping("/")
-    public ResponseEntity<Product> add(@RequestBody Product product) {
+    public ResponseEntity<Product> add(@RequestBody final Product product) {
         return new ResponseEntity<>(service.save(product), HttpStatus.OK);
     }
 
@@ -58,7 +58,7 @@ public class ProductController {
      * @param price
      */
     @PutMapping(path = "{id}")
-    public void update(@PathVariable("id") final Long id, @RequestParam(required = false) String name, @RequestParam(required = false) String description, @RequestParam(required = false) Float price) {
+    public void update(@PathVariable("id") final Long id, @RequestParam(required = false) final String name, @RequestParam(required = false) final String description, @RequestParam(required = false) final Float price) {
         service.update(id, name, description, price);
     }
 

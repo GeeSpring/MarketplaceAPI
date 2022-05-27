@@ -1,7 +1,6 @@
 package com.geespring.marketapi.model;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,7 +8,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "products")
+@Table(name = "product")
 public class Product {
 
     /**
@@ -22,7 +21,6 @@ public class Product {
     /**
      * Represents the Product Name
      */
-    @Column(name = "product_name")
     private String name;
 
     /**

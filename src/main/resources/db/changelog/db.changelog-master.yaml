@@ -101,3 +101,19 @@ databaseChangeLog:
                   type: float
                   constraints:
                     nullable: false
+
+  - changeSet:
+      id: 4
+      author: brandon
+      comment: Changed database table name to from 'products' to 'product'
+      changes:
+        - renameTable:
+            newTableName: product
+            oldTableName: products
+            schemaName: public
+        - renameColumn:
+            columnDataType: varchar(255)
+            newColumnName: name
+            oldColumnName: product_name
+            schemaName: public
+            tableName: product
