@@ -75,8 +75,6 @@ public class ProductService {
      * @param id
      */
     public void delete(final Long id) {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else throw new IllegalStateException("Product with id " + id + " does not exist.");
+        repository.deleteById(id);
     }
 }

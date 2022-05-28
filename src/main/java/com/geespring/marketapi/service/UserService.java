@@ -34,9 +34,6 @@ public class UserService {
      * @return the requested account object
      */
     public User create(User user) {
-        if (repository.findByEmailAddress(user.getEmail()).isPresent()) {
-            throw new DuplicateDataFoundException();
-        }
         user.setCreatedAt(timeUtil.getLocalDateTime());
         return repository.save(user);
     }
@@ -72,9 +69,7 @@ public class UserService {
      * @param id
      */
     public void delete(final Long id) {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else throw new IllegalStateException("User with id " + id + " does not exist.");
+        repository.deleteById(id);
     }
 
 }
