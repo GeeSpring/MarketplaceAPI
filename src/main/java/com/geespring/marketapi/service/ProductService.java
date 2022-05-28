@@ -25,8 +25,8 @@ public class ProductService {
      * Fetches all the products from the database
      * @return list of every single {@link Product}
      */
-    public List<Product> getAll() {
-        return ImmutableList.copyOf(repository.findAll().iterator());
+    public Iterable<Product> getAll() {
+        return repository.findAll();
     }
 
     /**

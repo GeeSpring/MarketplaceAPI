@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class CartProductDTO {
+public class CartEntryDTO {
 
     /**
      * Represents the Cart Product ID

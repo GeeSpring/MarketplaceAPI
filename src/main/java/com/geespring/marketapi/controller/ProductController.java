@@ -26,7 +26,7 @@ public class ProductController {
      * @return a list of every {@link Product}
      */
     @GetMapping
-    public ResponseEntity<List<Product>> getAllProducts() {
+    public ResponseEntity<Iterable<Product>> getAllProducts() {
         return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
     }
 

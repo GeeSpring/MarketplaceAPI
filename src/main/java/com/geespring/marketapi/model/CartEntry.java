@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name = "users_cart")
-public class Cart {
+public class CartEntry {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,7 +1,7 @@
 package com.geespring.marketapi.controller;
 
-import com.geespring.marketapi.dto.cart.CartProductDTO;
-import com.geespring.marketapi.model.Cart;
+import com.geespring.marketapi.dto.cart.CartEntryDTO;
+import com.geespring.marketapi.model.CartEntry;
 import com.geespring.marketapi.model.Product;
 import com.geespring.marketapi.service.CartService;
 import lombok.RequiredArgsConstructor;
@@ -30,8 +30,8 @@ public class CartController {
      * @return the list of products
      */
     @GetMapping
-    public ResponseEntity<List<Cart>> getProducts() {//TODO find the user by session token and append it to the service.
-        return new ResponseEntity<>(service.getCartProducts(1L), HttpStatus.OK);
+    public ResponseEntity<Iterable<CartEntry>> getProducts() {//TODO find the user by session token and append it to the service.
+        return new ResponseEntity<>(service.getAllProducts(1L), HttpStatus.OK);
     }
 
     /**
@@ -40,20 +40,20 @@ public class CartController {
      * @return {@link HttpStatus#OK}
      */
     @PostMapping
-    public ResponseEntity<?> add(@RequestBody final CartProductDTO productDTO) {//TODO find the user by session token and append it to the service
-        service.add(1L, productDTO);
+    public ResponseEntity<?> add(@RequestBody final CartEntryDTO productDTO) {//TODO find the user by session token and append it to the service
+        service.addProduct(1L, productDTO);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     /**
      * Updates the quantity of the {@link Product} within the users cart
      * @param productId
-     * @param quantity
+     * @param entry
      * @return {@link HttpStatus#OK}
      */
     @PutMapping(value = "{productId}")
-    public ResponseEntity<?> update(@PathVariable("productId") final Long productId, @RequestParam(required = true) final Integer quantity) {
-        service.update(1L, productId, quantity);
+    public ResponseEntity<?> update(@PathVariable("productId") final Long productId, @RequestBody final CartEntryDTO entry) {
+        service.updateQuantity(1L, entry);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -64,7 +64,7 @@ public class CartController {
      */
     @DeleteMapping("{productId}")
     public ResponseEntity<?> delete(@PathVariable("productId") final Long productId) {//TODO find the user by session token and append it to service
-        service.delete(1L, productId);
+        service.removeProduct(1L, productId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
